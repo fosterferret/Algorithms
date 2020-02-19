@@ -5,7 +5,7 @@ import math
 
 def recipe_batches(recipe, ingredients):
     if set(recipe.keys()).issubset(set(ingredients.keys())):
-        batches, max_batches = 0, math.inf
+        max_batches = math.inf
         for required_ingredient in recipe:
             batches = ingredients[required_ingredient] // recipe[required_ingredient]
             max_batches = batches if batches < max_batches else max_batches

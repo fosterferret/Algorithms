@@ -6,12 +6,12 @@ import argparse
 def find_max_profit(prices):
     min_price_so_far = prices[0]
     max_profit_so_far = prices[1] - min_price_so_far
-    for i in range(len(prices) - 1):
-        min_price_so_far = prices[i] if prices[i] < min_price_so_far \
-            else min_price_so_far
-        current_profit = prices[i + 1] - min_price_so_far
-        max_profit_so_far = current_profit if current_profit > max_profit_so_far \
-            else max_profit_so_far
+    for i in range(1, len(prices) - 1):
+        profit = prices[i + 1] - min_price_so_far
+        if prices[i] < min_price_so_far:
+            min_price_so_far = prices[i]
+        if profit > max_profit_so_far:
+            max_profit_so_far = profit
     return max_profit_so_far
 
 
