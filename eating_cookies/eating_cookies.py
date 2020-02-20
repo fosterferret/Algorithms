@@ -9,7 +9,7 @@ def eating_cookies(n, cache=None):
     if type(cache) == list or cache is None:
         cache = {0: 1, 1: 1, 2: 2, 3:4, 4:7}
     if n not in cache:
-        cache[n] = eating_cookies(n - 1, cache) + eating_cookies(n - 2, cache) + eating_cookies(n - 3, cache)
+        cache[n] = eating_cookies(n - 3, cache) + eating_cookies(n - 2, cache) + eating_cookies(n - 1, cache) 
     return cache[n]
 
 print(eating_cookies(10))
