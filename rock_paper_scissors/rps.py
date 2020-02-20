@@ -4,19 +4,18 @@ import sys
 
 
 def rock_paper_scissors(n):
-    actions = ['rock', 'paper', 'scissors']
-    possible_plays = []
+    actions, possible_combinations = ['rock', 'paper', 'scissors'], []
 
-    def get_possible_play(rounds_left, result):
+    def get_possible_combination(rounds_left, result):
         if rounds_left < 1:
-            possible_plays.append(result)
+            possible_combinations.append(result)
             return
 
         for action in actions:
-            get_possible_play(rounds_left - 1, [*result, action])
+            get_possible_combination(rounds_left - 1, [*result, action])
 
-    get_possible_play(n, [])
-    return possible_plays
+    get_possible_combination(n, [])
+    return possible_combinations
 
 
 if __name__ == "__main__":
