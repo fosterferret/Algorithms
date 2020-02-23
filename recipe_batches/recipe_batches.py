@@ -5,13 +5,14 @@ import math
 
 def recipe_batches(recipe, ingredients):
     if set(recipe.keys()).issubset(set(ingredients.keys())):
-        max_batches = math.inf
         for required_ingredient in recipe:
             ratio = ingredients[required_ingredient] // recipe[required_ingredient]
             max_batches = ratio if ratio < max_batches else max_batches
         return max_batches
     else:
       return 0
+
+ 
 
 
 if __name__ == '__main__':
